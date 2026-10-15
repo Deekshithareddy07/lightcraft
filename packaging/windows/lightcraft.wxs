@@ -13,18 +13,18 @@
 -->
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
   <Package
-      Name="LightCraft"
+      Name="Lightscape"
       Manufacturer="Learning Machines LLC"
       Version="$(var.Version)"
       UpgradeCode="229BB552-5EFD-479A-BA86-8CB6D926390C"
       Scope="perMachine"
       Compressed="yes"
       Language="1033">
-    <SummaryInformation Description="LightCraft photo library and raw developer" Manufacturer="Learning Machines LLC" />
+    <SummaryInformation Description="Lightscape photo library and raw developer" Manufacturer="Learning Machines LLC" />
     <!-- Same-version upgrades let successive pre-releases of one X.Y.Z replace each other
          (MSI versions are numeric, so 1.2.3-rc.1 and 1.2.3-rc.2 are both 1.2.3). -->
     <MajorUpgrade AllowSameVersionUpgrades="yes"
-        DowngradeErrorMessage="A newer version of LightCraft is already installed." />
+        DowngradeErrorMessage="A newer version of Lightscape is already installed." />
     <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
 
     <Icon Id="LightcraftIcon.ico" SourceFile="$(var.IconPath)" />
@@ -66,7 +66,7 @@
         Condition="LEGACYINSTALLFOLDER AND LEGACYINSTALLEXE AND NOT PREVIOUSINSTALLFOLDER AND NOT INSTALLFOLDER" />
     <StandardDirectory Id="ProgramMenuFolder" />
 
-    <Feature Id="Main" Title="LightCraft" Level="1">
+    <Feature Id="Main" Title="Lightscape" Level="1">
       <ComponentGroupRef Id="LightcraftFiles" />
     </Feature>
 
@@ -95,8 +95,8 @@
     <WixVariable Id="WixUIBannerBmp" Value="$(var.UiBannerBmp)" />
 
     <Property Id="WIXUI_EXITDIALOGOPTIONALTEXT"
-        Value="LightCraft has been installed. You can start it at any time from the Start menu." />
-    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch LightCraft" />
+        Value="Lightscape has been installed. You can start it at any time from the Start menu." />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Lightscape" />
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
 
     <!-- "Launch LightCraft" on Finish. WixUnelevatedShellExec (Util extension) asks the desktop
@@ -187,8 +187,8 @@
     <ComponentGroup Id="LightcraftFiles" Directory="INSTALLFOLDER">
       <Component Id="LightcraftApp" Guid="8A1D3A39-F7C1-47B1-97AE-40C80BF82F4A">
         <File Id="LightcraftExe" Source="$(var.BinDir)\lightcraft.exe" KeyPath="yes">
-          <Shortcut Id="StartMenuShortcut" Directory="ProgramMenuFolder" Name="LightCraft"
-              Description="LightCraft photo library and raw developer" WorkingDirectory="INSTALLFOLDER" Advertise="yes"
+          <Shortcut Id="StartMenuShortcut" Directory="ProgramMenuFolder" Name="Lightscape"
+              Description="Lightscape photo library and raw developer" WorkingDirectory="INSTALLFOLDER" Advertise="yes"
               Icon="LightcraftIcon.ico" IconIndex="0" />
         </File>
 

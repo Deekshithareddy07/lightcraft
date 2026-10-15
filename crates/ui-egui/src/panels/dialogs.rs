@@ -261,7 +261,7 @@ pub fn show(app: &mut LightcraftApp, ctx: &egui::Context) {
         // (nothing to download from in this build: the dialog explains the manual install)
         Dialog::SamModel { .. } if sam_by_hand(&app.session.segmenter) => "Install the SAM 3 Model",
         Dialog::SamModel { .. } => "Download the SAM 3 Model?",
-        Dialog::About => "About LightCraft",
+        Dialog::About => "About Lightscape",
         Dialog::Shortcuts => "Keyboard Shortcuts",
     }
     .to_string();
@@ -956,7 +956,7 @@ pub fn show(app: &mut LightcraftApp, ctx: &egui::Context) {
                                 crate::widgets::named(ui.add(egui::TextEdit::singleline(&mut opts.photos_album).hint_text(crate::i18n::tr("none")).desired_width(f32::INFINITY)), crate::i18n::tr("Album"))
                             });
                             ui.label(
-                                egui::RichText::new(crate::i18n::tr("The first time, macOS asks whether LightCraft may control Photos."))
+                                egui::RichText::new(crate::i18n::tr("The first time, macOS asks whether Lightscape may control Photos."))
                                     .size(11.0)
                                     .color(t.text_dim),
                             );
@@ -1120,7 +1120,7 @@ pub fn show(app: &mut LightcraftApp, ctx: &egui::Context) {
                 }
                 d @ Dialog::SynchronizeFolder { .. } => crate::sync::body(app, ui, d),
                 Dialog::LightroomCatalog { folder, catalog } => {
-                    ui.label(crate::i18n::tr("This is a Lightroom catalog, not a LightCraft library. Import it into a LightCraft library instead?"));
+                    ui.label(crate::i18n::tr("This is a Lightroom catalog, not a Lightscape library. Import it into a Lightscape library instead?"));
                     ui.label(egui::RichText::new(catalog.as_deref().unwrap_or(folder.as_str())).color(t.text_dim));
                     ui.label(
                         egui::RichText::new(crate::i18n::tr(
@@ -1162,7 +1162,7 @@ pub fn show(app: &mut LightcraftApp, ctx: &egui::Context) {
                         1 => crate::credits::contributors_ui(app, ui),
                         2 => crate::credits::models_ui(ui),
                         _ => {
-                            ui.label(egui::RichText::new("LightCraft").font(t.semibold(20.0)).color(t.text));
+                            ui.label(egui::RichText::new("Lightscape").font(t.semibold(20.0)).color(t.text));
                             ui.label(crate::i18n::tr_format!("Version {} — a clean-room, pure-Rust photo library and raw developer.", env!("CARGO_PKG_VERSION")));
                             ui.label(crate::i18n::tr_format!(
                                 "MIT OR Apache-2.0. Fonts: {} (OFL). Icons: original.",
@@ -1179,7 +1179,7 @@ pub fn show(app: &mut LightcraftApp, ctx: &egui::Context) {
                             }
                             ui.add_space(6.0);
                             for (label, url) in [
-                                ("LightCraft website", crate::links::APP_PAGE),
+                                ("Lightscape website", crate::links::APP_PAGE),
                                 ("Source code on GitHub", crate::links::GITHUB),
                                 ("ArtCraft — more creative apps", crate::links::WEBSITE),
                             ] {
