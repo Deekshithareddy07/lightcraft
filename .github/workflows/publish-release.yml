@@ -1,0 +1,23 @@
+name: Publish Release
+on:
+  workflow_dispatch:
+  push:
+    branches: [publish-release]
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish draft release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          echo "Listing releases..."
+          gh release list || true
+          echo "Publishing draft release v0.7.1..."
+          gh release edit "v0.7.1" --draft=false
+          echo "Done! Release v0.7.1 is now public."
